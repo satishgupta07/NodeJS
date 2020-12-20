@@ -1,3 +1,3 @@
-const x = require('./add')
+const {add} = require('./add')
 
-console.log(x.add(10,12))
+console.log(add(10,12))
