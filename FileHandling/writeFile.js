@@ -1,7 +1,8 @@
 const fs = require('fs')
+const path = require('path')
 
 fs.writeFile(
-    'Hello.txt',
+    path.join(__dirname,"Hello.txt"),
     'We are writing hello',
     {
         encoding : 'utf-8',
