@@ -7,7 +7,10 @@ let b = 20
 //     console.log('This is lib2')
 // }
 
-module.exports = {
-    lib1,
-    b
-}
+// module.exports = {
+//     lib1,
+//     b
+// }
+
+module.exports.lib1 = lib1
+module.exports.b = b
