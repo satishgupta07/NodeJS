@@ -1,4 +1,4 @@
-const lib1 = require('./file1')
+const file1 = require('./file1')
 
 console.log('Running File 2')
 
@@ -12,5 +12,5 @@ let b = 20
 //     b
 // }
 
-module.exports.lib1 = lib1
+module.exports.file1 = file1
 module.exports.b = b
