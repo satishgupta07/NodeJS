@@ -4,6 +4,8 @@ const app = express()
 
 let todo = []
 
+app.use('/site',express.static(path.join(__dirname,'static')))
+
 app.get('/addtodo', (req,res) => {
     todo.push(req.query.task)
     res.send('Success')
@@ -13,7 +15,8 @@ app.get('/gettodo', (req,res)=> {
     res.send(todo)
 })
 
- 
+
+
 app.listen(4444,()=> {
     console.log(`server started at http://localhost:4444`)
 })
