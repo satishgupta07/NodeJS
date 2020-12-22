@@ -1,22 +1,19 @@
 const express = require('express')
-const server = express()
+const path = require('path')
+const app = express()
 
-server.get('/',(req,res)=> {
-    res.send(`Hello Everyone !!`)
+let todo = []
+
+app.get('/addtodo', (req,res) => {
+    todo.push(req.query.task)
+    res.send('Success')
 })
 
-server.get('/hello/:name',(req,res)=> {
-    res.send(`Hello World ! ${req.params.name}`)
+app.get('/gettodo', (req,res)=> {
+    res.send(todo)
 })
 
-server.get('/bye',(req,res)=> {
-    res.send(`Good Bye ! ${req.query.name} ${req.query.age}`)
-})
-
-server.get('/hey',(req,res)=> {
-    res.sendFile(__dirname+'/index.html')
-})
  
-server.listen(4444,()=> {
+app.listen(4444,()=> {
     console.log(`server started at http://localhost:4444`)
 })
