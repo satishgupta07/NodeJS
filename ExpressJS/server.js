@@ -12,6 +12,10 @@ server.get('/hello/:name',(req,res)=> {
 server.get('/bye',(req,res)=> {
     res.send(`Good Bye ! ${req.query.name} ${req.query.age}`)
 })
+
+server.get('/hey',(req,res)=> {
+    res.sendFile(__dirname+'/index.html')
+})
  
 server.listen(4444,()=> {
     console.log(`server started at http://localhost:4444`)
