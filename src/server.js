@@ -11,6 +11,6 @@ app.get('/', (req, res) => {
     res.send("Hello World !")
 })
 
-app.listen(3333, ()=> {
-    console.log(`Server started on http://localhost:3333`)
-})
+module.exports = {
+    app
+}

@@ -2,9 +2,9 @@
   "name": "node-best-practices-sample",
   "version": "1.0.0",
   "description": "A project that showcases best practices for organising a nodejs project",
-  "main": "server.js",
+  "main": "src/run.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/run.js"
   },
   "author": "Satish Kumar Gupta",
   "license": "ISC",
