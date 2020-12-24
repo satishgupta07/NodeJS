@@ -2,7 +2,7 @@ const {app} = require('./server')
 const {db} = require('./models/db')
 
 async function run() {
-    await db.sync()
+    await db.sync({force: true})
     console.log('Database is ready')
     app.listen(3333, ()=> {
         console.log(`Server started on http://localhost:3333`)

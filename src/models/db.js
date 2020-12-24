@@ -44,5 +44,8 @@ Comment.belongsTo(User)
 User.hasMany(Comment)
 
 module.exports = {
-    db
+    db,
+    User,
+    Article,
+    Comment
 }
