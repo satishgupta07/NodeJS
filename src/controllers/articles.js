@@ -1,4 +1,4 @@
-const {Article} = require('../models/db')
+const {Article, User} = require('../models/db')
 
 async function createArticle (title, content, authorId) {
     if(typeof title !== 'string' || title.length < 1) {
@@ -11,7 +11,7 @@ async function createArticle (title, content, authorId) {
         throw new Error('Author of article not defined')
     }
     try {
-        await Article.create({
+        return await Article.create({
             title, content, authorId
         })
     } catch (e) {
@@ -21,13 +21,13 @@ async function createArticle (title, content, authorId) {
 
 async function fetchArticles() {
     try {
-        const articles = await Article.findAll()
-        return articles
+        return await Article.findAll()
     } catch (error) {
         throw error
     }
 }
 
 module.exports = {
-    createArticle
+    createArticle,
+    fetchArticles
 }
