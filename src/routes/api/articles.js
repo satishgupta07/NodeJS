@@ -26,7 +26,7 @@ route.get('/:id', async (req, res) => {
     }
     try {
         const article = await fetchArticleById(articleId)
-        res.status.json(article)
+        res.status(200).json(article)
     } catch (error) {
         throw error
     }
