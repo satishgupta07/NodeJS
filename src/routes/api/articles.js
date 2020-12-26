@@ -1,4 +1,4 @@
-const {fetchArticles, createArticle} = require('../../controllers/articles')
+const {fetchArticles, createArticle, fetchArticleById} = require('../../controllers/articles')
 const route = require('express').Router()
 
 route.get('/', async (req, res) => {
@@ -17,8 +17,19 @@ route.post('/', async (req, res) => {
     res.send(article)
 })
 
-route.get('/:id', (req, res) => {
+route.get('/:id', async (req, res) => {
     //Fetch a particular article
+    const articleId = req.params.id
+    if(isNaN(parseInt(articleId))) {
+        console.error(new Error('Article ID is not correct number.'))
+        res.redirect('/')
+    }
+    try {
+        const article = await fetchArticleById(articleId)
+        res.status.json(article)
+    } catch (error) {
+        throw error
+    }
 })
 
 route.get('/:id/comments', (req,res) => {
