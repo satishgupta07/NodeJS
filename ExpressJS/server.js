@@ -2,19 +2,17 @@ const express = require('express')
 const path = require('path')
 const app = express()
 
-let todo = []
-
+let todos = []
 app.use('/site',express.static(path.join(__dirname,'static')))
 
-app.get('/addtodo', (req,res) => {
-    todo.push(req.query.task)
-    res.send('Success')
+app.get('/addtask',(req,res)=>{
+    todos.push(req.query.task)
+    res.send('success')
 })
 
-app.get('/gettodo', (req,res)=> {
-    res.send(todo)
+app.get('/gettodos',(req,res)=>{
+    res.send(todos)
 })
-
 
 
 app.listen(4444,()=> {
