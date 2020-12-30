@@ -1,13 +1,14 @@
 const express = require('express')
 const app = express()
 
-app.use(f1) 
-app.use(f2) 
+app.use('/site',f1) // will work for /site/abc/def/..., not for /siteabc -> Path specific
+app.use(f2) // -> Global middleware
 app.use(f3)
 
 function f1(req,res,next){
     console.log('running f1')
     console.log(req.query)
+    console.log(req.url)
     if(req.query.m==1){
         res.send('Sending some other data')
     }
@@ -30,7 +31,7 @@ app.get('/',(req,res)=>{
     res.send('Hello world')
 })
 
-app.get('/site',(req,res)=>{ 
+app.get('/site',(req,res)=>{   // this will only work for /site, not for /site/abc/.....
     res.send('Loading new site')
 })
 
