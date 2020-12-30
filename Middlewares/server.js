@@ -7,7 +7,13 @@ app.use(f3)
 
 function f1(req,res,next){
     console.log('running f1')
-    next()
+    console.log(req.query)
+    if(req.query.m==1){
+        res.send('Sending some other data')
+    }
+    else{
+        next()
+    }
 }
 
 function f2(req,res,next){
@@ -22,6 +28,10 @@ function f3(req,res,next){
 
 app.get('/',(req,res)=>{
     res.send('Hello world')
+})
+
+app.get('/site',(req,res)=>{ 
+    res.send('Loading new site')
 })
 
 app.listen(4444,()=>{
