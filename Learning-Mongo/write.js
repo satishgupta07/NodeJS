@@ -9,5 +9,40 @@ MongoClient.connect(DB_URL,(err,client)=>{
     
     // Create a collection inside database
     const people = testdb.collection('people')
-    
+
+    //   people.insertOne({
+    //     name:'Aditya',
+    //     age:20,
+    //     city:'Delhi'
+    // },(err,result)=>{
+    //     if(err) throw err
+    //     console.log(result)
+    // })
+
+    people.insertMany([
+        {
+            name:'Parul',
+            age:21,
+            city:'Delhi'
+        },
+        {
+            name:'Shradha',
+            age:26,
+            city:'Amritsar'
+        },
+        {
+            name:'Vikrant',
+            age:15,
+            city:'Delhi'
+        },
+        {
+            name:'Riya',
+            age:16,
+            city:'Jharkand'
+        }
+    ],(err,result)=>{
+        if(err) throw err
+        console.log(result)
+    })
+
 })
